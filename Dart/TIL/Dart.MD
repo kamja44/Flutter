@@ -4,6 +4,7 @@
    &nbsp;&nbsp;1-3. [Dynamic Type](#dynamic-type)<br>
    &nbsp;&nbsp;1-4. [Null Safety](#null-safety)<br>
    &nbsp;&nbsp;1-5. [Final Variables](#final-variables)<br>
+   &nbsp;&nbsp;1-6. [Late Variables](#late-variables)<br>
 
 # 1장
 
@@ -124,4 +125,24 @@ void main(){
   // final 키워드 뒤에 타입을 정의할 수 있다.
   final String name2 = "kokuma";
 }
+```
+
+## Late Variables
+
+초기 데이터 없이 변수를 선언할 수 있다.
+
+- final이나 var 앞에 붙여줄 수 있는 수식어다.
+
+```dart
+void main() {
+  late final String name;
+  // do something, go to api
+  name = "kamja"; // final 변수는 한 번만 할당할 수 있다.
+
+  late final String name2;
+  print(name2); // name2는 값을 넣기 전에 접근하지 말아야 된다고 알려준다.
+  name2 = "";
+  print(name2);
+}
+
 ```
