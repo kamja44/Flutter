@@ -2,7 +2,8 @@
    &nbsp;&nbsp;1-1. [main 함수](#main)<br>
    &nbsp;&nbsp;1-2. [변수선언](#변수선언)<br>
    &nbsp;&nbsp;1-3. [Dynamic Type](#dynamic-type)<br>
-   &nbsp;&nbsp;1-3. [Null Safety](#null-safety)<br>
+   &nbsp;&nbsp;1-4. [Null Safety](#null-safety)<br>
+   &nbsp;&nbsp;1-5. [Final Variables](#final-variables)<br>
 
 # 1장
 
@@ -108,4 +109,19 @@ void main() {
   // name이 null이 아니라면 isNotEmpty 속성을 달라고 요청한다.
 }
 
+```
+
+## Final Variables
+
+한번 정의된 변수를 수정할 수 없게 만들기
+
+- final 키워드
+
+```dart
+void main(){
+  final name = "kamja";
+
+  // final 키워드 뒤에 타입을 정의할 수 있다.
+  final String name2 = "kokuma";
+}
 ```

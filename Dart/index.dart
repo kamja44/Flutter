@@ -1,11 +1,8 @@
 void main() {
-  String? name = "kamja";
-  name = null;
+  // 한번 정의된 변수를 수정할 수 없게 만들기
+  final name = "kamja";
+  name = "kokuma"; // The final variable 'name' can only be set once.
 
-  if (name != null) {
-    name.isNotEmpty;
-  }
-  // 5 ~ 7번 라인의 if문과 9번 라인의 코드는 동일하다.
-  name?.isNotEmpty;
-  // name이 null이 아니라면 isNotEmpty 속성을 달라고 요청한다.
+  // final 키워드 뒤에 타입을 정의할 수 있다.
+  final String name2 = "kokuma";
 }
