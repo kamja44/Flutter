@@ -5,6 +5,7 @@
    &nbsp;&nbsp;1-4. [Null Safety](#null-safety)<br>
    &nbsp;&nbsp;1-5. [Final Variables](#final-variables)<br>
    &nbsp;&nbsp;1-6. [Late Variables](#late-variables)<br>
+   &nbsp;&nbsp;1-7. [Constant Variables](#constant-variables)<br>
 
 # 1장
 
@@ -143,6 +144,30 @@ void main() {
   print(name2); // name2는 값을 넣기 전에 접근하지 말아야 된다고 알려준다.
   name2 = "";
   print(name2);
+}
+
+```
+
+## Constant Variables
+
+dart의 const는 compile-time constant를 만든다.
+
+- compile-time constant는 컴파일 시점에 값을 알고 있어야 한다.
+
+  - 즉, const는 컴파일 할 때 알고 있는 값에 사용한다.
+    - 어떤 값인지 모를때는 final or var을 사용한다.
+
+- dart의 const는 js나 ts의 const와 다르다.
+  - js나 ts의 const는 dart의 final과 비슷하다.
+
+```dart
+void main() {
+  const API = fetchApi(); // compile-time constant가 아니다.
+  // 컴파일러가 API 변수의 값을 모르기 때문
+  // 즉, API는 const가 아닌 final이 되어야 한다.
+  final API = fetchApi();
+  const API = "121212";
+  const max_allowed_price = 120;
 }
 
 ```
