@@ -2,6 +2,7 @@
    &nbsp;&nbsp;1-1. [main 함수](#main)<br>
    &nbsp;&nbsp;1-2. [변수선언](#변수선언)<br>
    &nbsp;&nbsp;1-3. [Dynamic Type](#dynamic-type)<br>
+   &nbsp;&nbsp;1-3. [Null Safety](#null-safety)<br>
 
 # 1장
 
@@ -16,7 +17,7 @@ main() 함수는 프로그램의 시작점
 - var 키워드를 사용하여 변수를 선언하면 변수의 타입을 추론한다.
   - 함수나 메소드 내부에 지역 변수를 선언할 때 관습적으로 var를 사용한다.
 
-```js
+```dart
 void main() {
   var name = "캄자";
   name = "kamja";
@@ -34,7 +35,7 @@ void main() {
 
 - dynamic type은 최대한 사용을 지양해야 한다.
 
-```js
+```dart
 void main() {
   // 변수의 type이 dynamic
   // var name;
@@ -45,7 +46,7 @@ void main() {
 }
 ```
 
-```js
+```dart
 void main() {
   dynamic name;
   if (name is String) {
@@ -56,6 +57,55 @@ void main() {
     // name이 Int Type일 경우의 동작
     // 즉, name은 Int type의 메서드를 사용할 수 있다.
   }
+}
+
+```
+
+## Null Safety
+
+개발자가 null값을 참조할 수 없도록 한다.
+
+- null값을 참조하면 런타임 에러가 발생한다.
+  - 런타임 에러는 사용자가 앱을 사용하던 중 발생하는 에러이다.
+    - 즉, 컴파일 이전에 런타임 에러를 제어해야 한다.
+
+`null safety는 어떤 변수, 혹은 데이터가 null이 될 수 있음을 명시한다.`
+
+- 즉, dart가 어떤 데이터가 null일 때 참조하지 않도록 도와준다.
+
+`Dart의 변수는 기본적으로 nullable이 아니다.`
+
+- nullable로 만들기 위해선 반드시 물음표를 넣어야 한다.
+
+```dart
+void main(){
+  String? name = "kamja";
+}
+```
+
+```dart
+void main(){
+  String name = "kamja";
+  name = null;
+  // name 변수가 String타입 or null타입도 될 수 있다고 하려면  String 뒤에 ?를 추가한다.
+  String? name = "kamja";
+
+  name.length; // name이 null일 수 있기에 에러가 발생한다.
+  // 즉, name이 null type이 아닌지 확인한 후 name.length를 사용해야 한다.
+}
+```
+
+```dart
+void main() {
+  String? name = "kamja";
+  name = null;
+
+  if(name != null){
+    name.isNotEmpty;
+  }
+  // 5 ~ 7번 라인의 if문과 9번 라인의 코드는 동일하다.
+  name?.isNotEmpty;
+  // name이 null이 아니라면 isNotEmpty 속성을 달라고 요청한다.
 }
 
 ```

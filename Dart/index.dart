@@ -1,11 +1,11 @@
 void main() {
-  dynamic name;
-  if (name is String) {
-    // name이 String Type일 경우의 동작
-    // 즉, name은 String Type의 메서드를 사용할 수 있다.
+  String? name = "kamja";
+  name = null;
+
+  if (name != null) {
+    name.isNotEmpty;
   }
-  if (name is int) {
-    // name이 Int Type일 경우의 동작
-    // 즉, name은 Int type의 메서드를 사용할 수 있다.
-  }
+  // 5 ~ 7번 라인의 if문과 9번 라인의 코드는 동일하다.
+  name?.isNotEmpty;
+  // name이 null이 아니라면 isNotEmpty 속성을 달라고 요청한다.
 }
