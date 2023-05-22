@@ -18,6 +18,8 @@
    &nbsp;&nbsp;3-1. [Defining a Function](#defining-a-function)<br>
    &nbsp;&nbsp;3-2. [Named Parameters](#named-parameters)<br>
    &nbsp;&nbsp;3-3. [Optional Positional Parameters](#optional-positional-parameters)<br>
+   &nbsp;&nbsp;3-4. [QQ Operator](#qq-operator)<br>
+   &nbsp;&nbsp;&nbsp;&nbsp;3-4-1. [??= 연산자](#연산자)<br>
 
 # 1장
 
@@ -521,3 +523,63 @@ void main() {
 `[String? country = "korea"]`
 
 - country는 require가 아니며 기본값으로 korea를 갖는다.
+
+## QQ Operator
+
+좌항과 우항이 있을때 ?? 가 체크를한다.
+
+- QQ = Question Question
+- `left ?? right`
+  - 만일 좌항이 null이면 우항을 return 한다.
+  - 좌항이 null이 아니면 좌항을 return 한다.
+    - `name?.toUpperCase() ?? "ANON";`
+
+사용자가 null값을 입력할 수 있는 방법 1.
+
+```dart
+String capitalizeName(String? name) {
+  if(name != null){
+    return name.toUpperCase();
+  }
+  return "ANON";
+}
+
+void main() {
+  capitalizeName(null);
+}
+
+```
+
+사용자가 null값을 입력할 수 있는 방법 2.
+
+```dart
+String capitalizeName2(String? name) => name != null ? name.toUpperCase() : "ANON";
+
+void main() {
+  capitalizeName(null);
+}
+
+```
+
+사용자가 null값을 입력할 수 있는 방법 3.
+
+```dart
+String capitalizeName2(String? name) => name?.toUpperCase() ?? "ANON";
+
+void main() {
+  capitalizeName(null);
+}
+
+```
+
+### ??= 연산자
+
+변수 안에 값이 null일 때 값을 할당할 수 있다.
+
+```dart
+void main(){
+  String? name;
+  name ??= "kamja";
+  print(name); // kamja
+}
+```
