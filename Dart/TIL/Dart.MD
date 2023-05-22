@@ -20,6 +20,7 @@
    &nbsp;&nbsp;3-3. [Optional Positional Parameters](#optional-positional-parameters)<br>
    &nbsp;&nbsp;3-4. [QQ Operator](#qq-operator)<br>
    &nbsp;&nbsp;&nbsp;&nbsp;3-4-1. [??= 연산자](#연산자)<br>
+   &nbsp;&nbsp;3-5. [Typedef](#typedef)<br>
 
 # 1장
 
@@ -581,5 +582,34 @@ void main(){
   String? name;
   name ??= "kamja";
   print(name); // kamja
+}
+```
+
+## Typedef
+
+자료형의 별칭을 지정한다.
+`typedef ListOfInts = List<int>;`
+
+- 즉, ListOfInts는 List<int> 자료형이다.
+
+```dart
+typedef ListOfInts = List<int>;
+
+List<int> reverseListOfNumbers(List<int> list){
+  var reversed = list.reversed;
+  return reversed.toList();
+}
+
+typedef UserInfo = Map<String, String>;
+
+String sayHi(UserInfo userInfo){
+  return "Hi ${userInfo['name']}";
+}
+
+
+void main(){
+print(reverseListOfNumbers([1, 2, 3])); // [3, 2, 1]
+
+print(sayHi({"name": "kamja"})); // Hi kamja
 }
 ```
