@@ -8,6 +8,9 @@
    &nbsp;&nbsp;1-7. [Constant Variables](#constant-variables)<br>
 2. [2장](#2장)<br>
    &nbsp;&nbsp;2-1. [Basic Data Types](#basic-data-types)<br>
+   &nbsp;&nbsp;2-2. [Lists](#lists)<br>
+   &nbsp;&nbsp;&nbsp;&nbsp;2-2-1. [Collection if](#collection-if)<br>
+   &nbsp;&nbsp;2-3. [String interpolation](#string-interpolation)<br>
 
 # 1장
 
@@ -188,6 +191,72 @@ void main() {
   double money = 65.55;
   num x = 12;
   x = 1.1;
+}
+```
+
+## Lists
+
+List 선언 방법
+
+```dart
+void main(){
+  // 1.
+  var numbers = [1, 2, 3, 4,];
+  // 2.
+  List<int> numbers = [1, 2, 3, 4,];
+
+  var numbers2 = [1, 2, 3, 4, "kamja",];
+}
+```
+
+### Collection if
+
+존재할 수도 안할 수도 있는 요소를 가지고 list를 만들 수 있다.
+
+```dart
+void main() {
+  var giveMeFive = true;
+  var numbers = [
+    1,
+    2,
+    3,
+    4,
+    "kamja",
+    if(giveMeFive ) 5,
+    // giveMeFive가 존재한다면 5를 추가한다.
+    // 위 코드는 다음과 같다.
+    // if(giveMeFive){numbers.add(5);}
+  ];
+  print(numbers); // [1, 2, 3, 4, kamja, 5]
+}
+
+```
+
+## String interpolation
+
+text에 변수를 추가하는 방법
+
+- ""('')안에 `$변수명`으로 사용한다.
+- 계산을 수행할 때는 `${계산식}`으로 사용한다.
+
+변수가 이미 존재할 때의 String interpolation
+
+```dart
+void main() {
+  var name  = "kamja";
+  var greeting = "Hello my name is $name nice to meet you!";
+  print(greeting); // Hello my name is kamja nice to meet you!
+}
+```
+
+계산을 실행할 때의 String interpolation
+
+```dart
+void main() {
+  var name = "kamja";
+  var age = 10;
+  var greeting = "Hello my name is $name nice to meet you! and I'm ${age + 2}"; // Hello my name is kamja nice to meet you! and I'm 12
+  print(greeting);
 }
 
 ```

@@ -1,8 +1,6 @@
 void main() {
-  String name = "kamja";
-  bool alive = true;
-  int age = 12;
-  double money = 65.55;
-  num x = 12;
-  x = 1.1;
+  var name = "kamja";
+  var age = 10;
+  var greeting = "Hello my name is $name nice to meet you! and I'm ${age + 2}";
+  print(greeting);
 }
