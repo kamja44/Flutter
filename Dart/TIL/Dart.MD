@@ -10,6 +10,7 @@
    &nbsp;&nbsp;2-1. [Basic Data Types](#basic-data-types)<br>
    &nbsp;&nbsp;2-2. [Lists](#lists)<br>
    &nbsp;&nbsp;&nbsp;&nbsp;2-2-1. [Collection if](#collection-if)<br>
+   &nbsp;&nbsp;&nbsp;&nbsp;2-2-2. [Collection for](#collection-for)<br>
    &nbsp;&nbsp;2-3. [String interpolation](#string-interpolation)<br>
 
 # 1장
@@ -213,6 +214,8 @@ void main(){
 
 존재할 수도 안할 수도 있는 요소를 가지고 list를 만들 수 있다.
 
+- 즉, List를 생성할 때 조건에 따라 element를 추가할 수 있다.
+
 ```dart
 void main() {
   var giveMeFive = true;
@@ -229,7 +232,25 @@ void main() {
   ];
   print(numbers); // [1, 2, 3, 4, kamja, 5]
 }
+```
 
+### Collection For
+
+반복문을 이용하여 list의 요소에 데이터를 추가할 수 있다.
+
+```dart
+void main() {
+  var oldFriends = ["kamja", "kokuma"];
+  var newFriends = [
+    "kimchi",
+    "potato",
+    "rice",
+    for (var friend in oldFriends) "🍙  $friend",
+  ];
+  // list 안의 for문은 다음과 같다.
+  // for(var friend in oldFriends){newFriend.add("🍙  $friend");}
+  print(newFriends); // [kimchi, potato, rice, 🍙  kamja, 🍙  kokuma]
+}
 ```
 
 ## String interpolation

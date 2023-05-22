@@ -1,6 +1,12 @@
 void main() {
-  var name = "kamja";
-  var age = 10;
-  var greeting = "Hello my name is $name nice to meet you! and I'm ${age + 2}";
-  print(greeting);
+  var oldFriends = ["kamja", "kokuma"];
+  var newFriends = [
+    "kimchi",
+    "potato",
+    "rice",
+    for (var friend in oldFriends) "🍙  $friend",
+  ];
+  // list 안의 for문은 다음과 같다.
+  // for(var friend in oldFriends){newFriend.add("🍙  $friend");}
+  print(newFriends); // [kimchi, potato, rice, 🍙  kamja, 🍙  kokuma]
 }
