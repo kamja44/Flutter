@@ -6,6 +6,8 @@
    &nbsp;&nbsp;1-5. [Final Variables](#final-variables)<br>
    &nbsp;&nbsp;1-6. [Late Variables](#late-variables)<br>
    &nbsp;&nbsp;1-7. [Constant Variables](#constant-variables)<br>
+2. [2장](#2장)<br>
+   &nbsp;&nbsp;2-1. [Basic Data Types](#basic-data-types)<br>
 
 # 1장
 
@@ -168,6 +170,24 @@ void main() {
   final API = fetchApi();
   const API = "121212";
   const max_allowed_price = 120;
+}
+
+```
+
+## Basic Data Types
+
+num 자료형을 사용하면 그 숫자는 integer일 수도 있고 double일 수도 있다.
+
+- int와 double 자료형은 num 클래스를 상속받아 사용한다.
+
+```dart
+void main() {
+  String name = "kamja";
+  bool alive = true;
+  int age = 12;
+  double money = 65.55;
+  num x = 12;
+  x = 1.1;
 }
 
 ```
