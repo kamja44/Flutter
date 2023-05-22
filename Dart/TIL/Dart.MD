@@ -13,6 +13,7 @@
    &nbsp;&nbsp;&nbsp;&nbsp;2-2-2. [Collection for](#collection-for)<br>
    &nbsp;&nbsp;2-3. [String interpolation](#string-interpolation)<br>
    &nbsp;&nbsp;2-4. [Map](#map)<br>
+   &nbsp;&nbsp;2-5. [Set](#set)<br>
 
 # 1장
 
@@ -356,3 +357,28 @@ void main(){
 ```
 
 API를 통해 얻은 데이터는 class를 이용하여 처리하는 것을 권장한다.
+
+## Set
+
+set에 속한 모든 요소들이 유니크해야될 때 사용한다.
+
+- 유니크할 필요가 없다면 List를 사용하면 된다.
+
+```dart
+void main() {
+  var numbers = {1, 2, 3, 4}; // Set<int>
+  // 위 코드는 아래의 코드와 동일하다.
+  // Set<int> numbers = {1, 2, 3, 4};
+  numbers.add(1);
+  numbers.add(1);
+  numbers.add(1);
+  print(numbers); // {1, 2, 3, 4}
+
+   // list 사용
+  List<int> numbers2 = [1, 2, 3, 4];
+  numbers2.add(1);
+  numbers2.add(1);
+  numbers2.add(1);
+  print(numbers2); // [1, 2, 3, 4, 1, 1, 1]
+}
+```
