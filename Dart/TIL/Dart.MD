@@ -12,6 +12,7 @@
    &nbsp;&nbsp;&nbsp;&nbsp;2-2-1. [Collection if](#collection-if)<br>
    &nbsp;&nbsp;&nbsp;&nbsp;2-2-2. [Collection for](#collection-for)<br>
    &nbsp;&nbsp;2-3. [String interpolation](#string-interpolation)<br>
+   &nbsp;&nbsp;2-4. [Map](#map)<br>
 
 # 1장
 
@@ -281,3 +282,77 @@ void main() {
 }
 
 ```
+
+## Map
+
+dart의 map은 JS의 object, 파이썬의 dictionary와 같다.
+
+```dart
+void main(){
+  var player = {
+    "name": "kamja",
+    "xp": 19.99,
+    "superpower": false,
+  }; // Type: Map<String, Object>
+}
+```
+
+Type: Map<String, Object>
+
+- key는 string이고, value는 object타입 이다.
+  - Dart에서는 모든게 object로부터 생겨서 기본적으로 어떤 자료형이든 될 수 있다.
+  - 즉, TS의 any 타입과 동일하다.
+
+Map의 타입을 명시적으로 정의
+
+```dart
+void main(){
+  Map<int, bool> player = {
+    1: true,
+    2: false,
+    3: true
+  }
+}
+```
+
+var키워드로 선언하면 컴파일러가 key와 value의 자료형을 유추한다.
+
+```dart
+dart player = {
+  1: true,
+  2: false,
+}
+```
+
+key값의 타입을 List<int> 타입으로 선언
+
+```dart
+void main(){
+  Map<List<int>, bool> player = {
+    [1, 2, 3, 4]: true,
+  };
+}
+```
+
+Map<String, Object>를 요소로 갖는 List 선언
+
+```dart
+void main(){
+  List<Map<String, Object>> players = [
+    {
+      "name": "kamja",
+      "xp": 199993.999
+    },
+    {
+      "name": "kamja",
+      "xp": 199993.999
+    },
+    {
+      "name": "kamja",
+      "xp": 199993.999
+    },
+  ];
+}
+```
+
+API를 통해 얻은 데이터는 class를 이용하여 처리하는 것을 권장한다.
