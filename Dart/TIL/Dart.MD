@@ -14,6 +14,8 @@
    &nbsp;&nbsp;2-3. [String interpolation](#string-interpolation)<br>
    &nbsp;&nbsp;2-4. [Map](#map)<br>
    &nbsp;&nbsp;2-5. [Set](#set)<br>
+3. [3장](#3장)<br>
+   &nbsp;&nbsp;3-1. [Defining a Function](#defining-a-function)<br>
 
 # 1장
 
@@ -382,3 +384,31 @@ void main() {
   print(numbers2); // [1, 2, 3, 4, 1, 1, 1]
 }
 ```
+
+# 3장
+
+## Defining a Function
+
+```js
+void sayHello(String name){
+  print("Hello $name nice to meet you");
+}
+
+String sayHello2(String name){
+  return "Hello $name nice to meet you";
+}
+
+String sayHello3(String name) => "Hello $name nice to meet you";
+
+num plus(num a, num b) => a + b;
+
+void main(){
+  sayHello("kamja");  // Hello kamja nice to meet you
+  print(sayHello2("kamja"));  // Hello kamja nice to meet you
+  print(sayHello3("kamja")); // Hello kamja nice to meet you
+    print(plus(10, 20)); // 30
+}
+```
+
+void는 함수가 아무것도 return 하지 않는다.
+sayHello2는 String을 return하는 함수이다.

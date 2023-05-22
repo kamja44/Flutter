@@ -1,16 +1,18 @@
-void main() {
-  var numbers = {1, 2, 3, 4}; // Set<int>
-  // 위 코드는 아래의 코드와 동일하다.
-  // Set<int> numbers = {1, 2, 3, 4};
-  numbers.add(1);
-  numbers.add(1);
-  numbers.add(1);
-  print(numbers); // {1, 2, 3, 4}
+void sayHello(String name) {
+  print("Hello $name nice to meet you");
+}
 
-  // list 사용
-  List<int> numbers2 = [1, 2, 3, 4];
-  numbers2.add(1);
-  numbers2.add(1);
-  numbers2.add(1);
-  print(numbers2); // [1, 2, 3, 4, 1, 1, 1]
+String sayHello2(String name) {
+  return "Hello $name nice to meet you";
+}
+
+String sayHello3(String name) => "Hello $name nice to meet you";
+
+num plus(num a, num b) => a + b;
+
+void main() {
+  sayHello("kamja");
+  print(sayHello2("kamja"));
+  print(sayHello3("kamja"));
+  print(plus(10, 20));
 }
