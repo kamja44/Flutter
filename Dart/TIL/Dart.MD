@@ -16,6 +16,7 @@
    &nbsp;&nbsp;2-5. [Set](#set)<br>
 3. [3장](#3장)<br>
    &nbsp;&nbsp;3-1. [Defining a Function](#defining-a-function)<br>
+   &nbsp;&nbsp;3-2. [Named Parameters](#named-parameters)<br>
 
 # 1장
 
@@ -412,3 +413,71 @@ void main(){
 
 void는 함수가 아무것도 return 하지 않는다.
 sayHello2는 String을 return하는 함수이다.
+
+## Named Parameters
+
+순서에 관계없이 argument의 이름들만 적어주면 된다.
+
+- named argument를 사용하기 위해선 함수의 argument 부분을 {}로 묶어줘야 한다.
+  - named argument를 생성하는 2가지 방법
+    - 1. default value 사용
+    - 2. required 사용
+
+```dart
+String sayHello({String name, num age, String country}){
+  return "Hello $name, you are $age, and you come from $country";
+}
+```
+
+```dart
+String sayHello({String name, num age, String country}){
+  return "Hello $name, you are $age, and you come from $country";
+}
+
+void main(){
+  // named argument를 사용하지 않은 코드
+  print(sayHello("kamja", 20, "korea"));
+
+  // named argument를 사용한 코드
+  print(sayHello(
+    age: 20,
+    country: "korea",
+    name: "kamja",
+  ));
+}
+```
+
+name argument에 default value 적용
+
+```dart
+String sayHello({String name = "anon", num age = 30, String country = "korea",}){
+  return "Hello $name, you are $age, and you come from $country";
+}
+
+void main(){
+  // named argument를 사용한 코드
+  print(sayHello(
+    age: 20,
+    country: "korea",
+    name: "kamja",
+  ));
+}
+```
+
+required 사용
+
+```dart
+// required 사용
+String sayHello2(
+    {required String name, required num age, required String country}) {
+  return "Hello $name, you are $age, and you come from $country";
+}
+
+void main() {
+  print(sayHello2(
+      age: 12,
+      country: "cicici",
+      name:
+          "lalala")); // sayHello2() argument가 전부 required이기에 인수를 전달하지 않으면 에러가 발생한다.
+}
+```
