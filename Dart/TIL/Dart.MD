@@ -17,6 +17,7 @@
 3. [3장](#3장)<br>
    &nbsp;&nbsp;3-1. [Defining a Function](#defining-a-function)<br>
    &nbsp;&nbsp;3-2. [Named Parameters](#named-parameters)<br>
+   &nbsp;&nbsp;3-3. [Optional Positional Parameters](#optional-positional-parameters)<br>
 
 # 1장
 
@@ -481,3 +482,42 @@ void main() {
           "lalala")); // sayHello2() argument가 전부 required이기에 인수를 전달하지 않으면 에러가 발생한다.
 }
 ```
+
+## Optional Positional Parameters
+
+- positional parameters의 require 속성을 해제한다.
+  - 즉, null을 허용한다.
+    - 대괄호로 감싸주고 물음표를 사용한 후 기본값을 할당한다.
+    - `[String? country = "korea"]`
+
+positional parameter는 순서에 맞춰서 입력해야 한다.
+
+```dart
+void main(){
+  sayHello(1, 2, 3, 4);
+}
+```
+
+named parameter
+
+```dart
+void main(){
+  sayHello(
+    name: 1,
+  );
+}
+```
+
+```dart
+String sayHello(String name, int age, [String? country = "korea"]) =>
+    "Hello $name, you are $age years old from $country";
+
+void main() {
+  print(sayHello("kamja", 20)); // optional positional parameters를 이용하여 country를 전달하지 않아도 에러가 발생하지 않는다.
+}
+
+```
+
+`[String? country = "korea"]`
+
+- country는 require가 아니며 기본값으로 korea를 갖는다.
