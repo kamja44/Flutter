@@ -23,6 +23,7 @@
    &nbsp;&nbsp;3-5. [Typedef](#typedef)<br>
 4. [Class](#class)<br>
    &nbsp;&nbsp;4-1. [Dart Class](#dart-class)<br>
+   &nbsp;&nbsp;4-2. [Constructors](#constructors)<br>
 
 # 1장
 
@@ -655,5 +656,55 @@ void main() {
   player.xp = 2000; // 'xp' can't be used as a setter because it's final.
 
   player.sayHello();
+}
+```
+
+## Constructors
+
+argument로 player의 이름과 xp를 전달해서 새로운 Player를 생성한다.
+
+- constructor method의 이름은 class의 이름과 같아야 한다.
+
+constructor 선언방법 1
+
+```dart
+class Player{
+  late final String name;
+  late int xp;
+
+  Player(String name, int xp){
+    this.name = name;
+    this.xp = xp;
+  }
+}
+
+void main() {
+  var player = Player("kamja", 1500);
+  player.sayHello(); // Hi my name is kamja
+
+  var player2 = Player("kokuma", 3000);
+  player2.sayHello(); // Hi my name is kokuma
+}
+```
+
+- late은 변수들의 값을 나중에 받아온다.
+
+constructor 선언방법 2
+
+```dart
+class Player2{
+  String name;
+  final int xp;
+
+  Player2(this.name, this.xp);
+
+  void sayHello(){
+    print("Hi my name is $name");
+  }
+}
+
+void main() {
+  var player3 = Player2("kamja", 2000);
+  player3.sayHello();
 }
 ```
