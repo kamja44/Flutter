@@ -21,6 +21,8 @@
    &nbsp;&nbsp;3-4. [QQ Operator](#qq-operator)<br>
    &nbsp;&nbsp;&nbsp;&nbsp;3-4-1. [??= 연산자](#연산자)<br>
    &nbsp;&nbsp;3-5. [Typedef](#typedef)<br>
+4. [Class](#class)<br>
+   &nbsp;&nbsp;4-1. [Dart Class](#dart-class)<br>
 
 # 1장
 
@@ -611,5 +613,47 @@ void main(){
 print(reverseListOfNumbers([1, 2, 3])); // [3, 2, 1]
 
 print(sayHi({"name": "kamja"})); // Hi kamja
+}
+```
+
+# Class
+
+## Dart Class
+
+클래스에서 property를 선언할 때는 타입을 사용하여 정의한다.
+
+- 클래스를 생성할 때는 타입을 반드시 명시해야한다.
+  - 클래스를 생성할 때 new 연산자를 생략할 수 있다.
+    - `new Player();`과 `Player()`은 동일하게 클래스를 생성한다.
+
+class에 final 키워드를 사용하면 property의 값을 변경하지 못하게 막을 수 있다.
+
+dart의 클래스에서는 this를 사용할 필요가 없다.
+
+- this를 사용해도 동일하게 동작한다.
+  - class method 내에서 this는 사용하지 않는 것이 권고된다.
+    - `print("Hi my name is $name");`와 `print("Hi my name is ${this.name}");`은 동일하다.
+
+```dart
+class Player {
+  String name = "kamja";
+
+  final int xp = 1500;
+
+  void sayHello(){
+    print("Hi my name is $name");
+    print("Hi my name is ${this.name}");
+  }
+}
+
+void main() {
+  var player = new Player();
+  print(player.name); // kamja
+  player.name = "kokum";
+  print(player.name); // kokuma
+
+  player.xp = 2000; // 'xp' can't be used as a setter because it's final.
+
+  player.sayHello();
 }
 ```

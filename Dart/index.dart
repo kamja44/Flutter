@@ -1,17 +1,19 @@
-typedef ListOfInts = List<int>;
+class Player {
+  String name = "kamja";
+  final int xp = 1500;
 
-ListOfInts reverseListOfNumbers(ListOfInts list) {
-  var reversed = list.reversed;
-  return reversed.toList();
-}
-
-typedef UserInfo = Map<String, String>;
-
-String sayHi(UserInfo userInfo) {
-  return "Hi ${userInfo['name']}";
+  void sayHello() {
+    print("Hi my name is $name");
+    print("Hi my name is ${this.name}");
+  }
 }
 
 void main() {
-  print(reverseListOfNumbers([1, 2, 3])); // [3, 2, 1]
-  print(sayHi({"name": "kamja"})); // Hi kamja
+  var player = new Player();
+  print(player.name);
+  player.name = "kokuma";
+  print(player.name);
+
+  // player.xp = 2000; // 'xp' can't be used as a setter because it's final.
+  player.sayHello();
 }
