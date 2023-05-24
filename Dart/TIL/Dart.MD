@@ -712,6 +712,14 @@ void main() {
 
 ## Named Constructor Parameters
 
+parameter들에게 이름을 붙인다.
+`Player(
+      {required this.name,
+      required this.xp,
+      required this.team,
+      required this.age,
+      });`
+
 ```dart
 class Player {
   final String name;
