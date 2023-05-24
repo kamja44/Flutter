@@ -1,12 +1,13 @@
 class Player {
-  final String name;
+  String name;
   int xp;
   String team;
 
-  Player.fromJson(Map<String, dynamic> playerJson)
-      : name = playerJson["name"],
-        xp = playerJson["xp"],
-        team = playerJson["team"];
+  Player({
+    required this.name,
+    required this.xp,
+    required this.team,
+  });
 
   void sayHello() {
     print("Hi my name is $name");
@@ -14,26 +15,17 @@ class Player {
 }
 
 void main() {
-  var apiData = [
-    {
-      "name": "kamja",
-      "team": "blue",
-      "xp": 0,
-    },
-    {
-      "name": "kokuma",
-      "team": "blue",
-      "xp": 0,
-    },
-    {
-      "name": "nanna",
-      "team": "blue",
-      "xp": 0,
-    },
-  ];
-
-  apiData.forEach((playerJson) {
-    var player = Player.fromJson(playerJson);
-    player.sayHello();
-  });
+  var kamja = Player(name: "kamja", xp: 1000, team: "blue")
+    ..name = "kokuma"
+    ..xp = 1300
+    ..team = "coral"
+    ..sayHello();
+  // .은 kamja를 가리킨다.
+  // 위 코드는 아래의 코드와 동일하다.
+  /**
+   * var kamja = Player(name: "kamja", xp: 1000, team: "blue");
+   * kamja.name = "kokuma";
+   * kamja.xp = 1300;
+   * kamja.team = "coral";
+   */
 }

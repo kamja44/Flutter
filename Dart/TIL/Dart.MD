@@ -27,6 +27,7 @@
    &nbsp;&nbsp;4-3. [Named Constructor Parameters](#named-constructor-parameters)<br>
    &nbsp;&nbsp;4-4. [Named Constructors](#named-constructors)<br>
    &nbsp;&nbsp;&nbsp;&nbsp;4-4-1. [fromJson](#fromjson)<br>
+   &nbsp;&nbsp;4-5. [Cascade Notation](#casecade-notation)<br>
 
 # 1장
 
@@ -890,5 +891,50 @@ void main() {
     var player = Player.fromJson(playerJson);
     player.sayHello();
   });
+}
+```
+
+## Casecade Notation
+
+`var kamja = Player(name: "kamja", xp: 1000, team: "blue");
+kamja.name = "kokuma";`
+
+위의 코드를 아래와 같이 대체할 수 있다.
+`var kamja = Player(name: "kamja", xp: 1000, team: "blue")
+..name = "kokuma";`
+
+- .은 kamja와 동일하다.
+  - .앞에 class가 있다면, 곧바로 그 class를 가리키게 된다.
+
+```dart
+class Player {
+  String name;
+  int xp;
+  String team;
+
+  Player({
+    required this.name,
+    required this.xp,
+    required this.team,
+  });
+
+  void sayHello() {
+    print("Hi my name is $name");
+  }
+}
+
+void main() {
+  var kamja = Player(name: "kamja", xp: 1000, team: "blue")
+    ..name = "kokuma"
+    ..xp = 1300
+    ..team = "coral";
+    // .은 kamja를 가리킨다.
+  // 위 코드는 아래의 코드와 동일하다.
+  /**
+   * var kamja = Player(name: "kamja", xp: 1000, team: "blue");
+   * kamja.name = "kokuma";
+   * kamja.xp = 1300;
+   * kamja.team = "coral";
+   */
 }
 ```
