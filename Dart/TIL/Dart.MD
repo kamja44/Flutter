@@ -25,6 +25,7 @@
    &nbsp;&nbsp;4-1. [Dart Class](#dart-class)<br>
    &nbsp;&nbsp;4-2. [Constructors](#constructors)<br>
    &nbsp;&nbsp;4-3. [Named Constructor Parameters](#named-constructor-parameters)<br>
+   &nbsp;&nbsp;4-4. [Named Constructors](#named-constructors)<br>
 
 # 1장
 
@@ -746,3 +747,63 @@ void main() {
 ```
 
 - 생성자의 요소에 required를 추가함으로써 null값을 배제한다.
+
+## Named Constructors
+
+- 기존 클래스의 생성자에서 약간만 다른 생성자를 메서드로 선언할 수 있다.
+  `Player.createBluePlayer({
+  required String name,
+  required int age,
+}): this.age = age,
+    this.name = name,
+    this.team = "blue",
+    this.xp = 0;`
+
+```dart
+class Player {
+  final String name;
+  int xp, age;
+  String team;
+
+  Player({
+    required this.name,
+    required this.xp,
+    required this.team,
+    required this.age,
+  });
+
+  // Player를 초기화하는 method
+
+  // named Syntax 사용
+  // named parameter에는 기본적으로 required 속성이 없다.
+  Player.createBluePlayer({
+    required String name,
+    required int age,
+  })  : this.age = age,
+        this.name = name,
+        this.team = "blue",
+        this.xp = 0;
+
+  // positional syntax 사용
+  // 기본적으로 positional syntax는 required이다.
+  Player.createRedPlayer(String name, int age)
+      : this.age = age,
+        this.name = name,
+        this.team = "red",
+        this.xp = 0;
+}
+
+void main() {
+  var bluePlayer = Player.createBluePlayer(
+    name: "kamja",
+    age: 20,
+  );
+  var redPlayer = Player.createRedPlayer(
+    "kokuma",
+    30,
+  );
+}
+```
+
+- named parameter는 기본적으로 required가 아니다.
+- positional parameter는 기본적으로 required이다.
