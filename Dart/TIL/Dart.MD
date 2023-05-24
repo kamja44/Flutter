@@ -28,6 +28,7 @@
    &nbsp;&nbsp;4-4. [Named Constructors](#named-constructors)<br>
    &nbsp;&nbsp;&nbsp;&nbsp;4-4-1. [fromJson](#fromjson)<br>
    &nbsp;&nbsp;4-5. [Cascade Notation](#casecade-notation)<br>
+   &nbsp;&nbsp;4-6. [Enums](#enums)<br>
 
 # 1장
 
@@ -937,4 +938,55 @@ void main() {
    * kamja.team = "coral";
    */
 }
+```
+
+## Enums
+
+- 데이터를 미리 정의하여 실수를 방지하는 역할을 한다.
+
+```dart
+enum Team {red, blue}
+
+class Player{
+  Team team;
+
+  Player({
+    required this.team
+  });
+}
+
+void main(){
+  var kamja = Player(team: Team.blue);
+}
+```
+
+```dart
+enum Team { red, blue }
+
+enum XPLevel { beginner, medium, pro }
+
+class Player {
+  String name;
+  XPLevel xp;
+  Team team;
+
+  Player({
+    required this.name,
+    required this.xp,
+    required this.team,
+  });
+
+  void sayHello() {
+    print("Hi my name is $name");
+  }
+}
+
+void main() {
+  var kamja = Player(name: "kamja", xp: 1000, team: Team.blue)
+    ..name = "kokuma"
+    ..xp = 1300
+    ..team = Team.red
+    ..sayHello();
+}
+
 ```

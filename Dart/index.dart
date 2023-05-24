@@ -1,7 +1,11 @@
+enum Team { red, blue }
+
+enum XPLevel { beginner, medium, pro }
+
 class Player {
   String name;
-  int xp;
-  String team;
+  XPLevel xp;
+  Team team;
 
   Player({
     required this.name,
@@ -15,17 +19,9 @@ class Player {
 }
 
 void main() {
-  var kamja = Player(name: "kamja", xp: 1000, team: "blue")
+  var kamja = Player(name: "kamja", xp: 1000, team: Team.blue)
     ..name = "kokuma"
     ..xp = 1300
-    ..team = "coral"
+    ..team = Team.red
     ..sayHello();
-  // .은 kamja를 가리킨다.
-  // 위 코드는 아래의 코드와 동일하다.
-  /**
-   * var kamja = Player(name: "kamja", xp: 1000, team: "blue");
-   * kamja.name = "kokuma";
-   * kamja.xp = 1300;
-   * kamja.team = "coral";
-   */
 }
