@@ -29,6 +29,7 @@
    &nbsp;&nbsp;&nbsp;&nbsp;4-4-1. [fromJson](#fromjson)<br>
    &nbsp;&nbsp;4-5. [Cascade Notation](#casecade-notation)<br>
    &nbsp;&nbsp;4-6. [Enums](#enums)<br>
+   &nbsp;&nbsp;4-7. [Abstract Classes](#abstract-classes)<br>
 
 # 1장
 
@@ -982,6 +983,61 @@ class Player {
 }
 
 void main() {
+  var kamja = Player(name: "kamja", xp: XPLevel.medium, team: Team.blue)
+    ..name = "kokuma"
+    ..xp = XPLevel.pro
+    ..team = Team.red
+    ..sayHello();
+}
+
+```
+
+## Abstract Classes
+
+추상화 클래스는 다른 클래스들이 직접 구현해야 하는 메소드들을 모아 놓은 일종의 청사진이다.
+
+- 추상화 클래스는 아무것도 구현하지 않는다.
+- 메소드가 반환하는 값만 정의한다.
+
+즉, 추상화 클래스는 다른 클래스들이 어떤 데이터를 가지고 있어야 하는지 정의한다.
+
+- 추상화 클래스를 상속받은 클래스는 추상화 클래스가 갖고 있는 메서드를 사용해야 한다.
+  - 즉, 추상화 클래스는 특정 메소드의 구현을 강제한다.
+
+```dart
+abstract class Human{
+  void walk();
+}
+
+class Player extends Human{
+  // walk 메서드를 정의하지 않으면 아래와 같은 에러가 발생한다.
+  // Missing concrete implementation of 'Human.walk'.
+  String name;
+  XPLevel xp;
+  Team team;
+
+  Player({
+    required this.name,
+    required this.xp,
+    required this.team,
+  });
+
+  void sayHello(){
+    print("Hi my name is $name");
+  }
+
+  void walk(){
+    print("im walking");
+  }
+}
+
+class Coach extends Human{
+  void walk(){
+    print("the coach is walking");
+  }
+}
+
+void main(){
   var kamja = Player(name: "kamja", xp: XPLevel.medium, team: Team.blue)
     ..name = "kokuma"
     ..xp = XPLevel.pro

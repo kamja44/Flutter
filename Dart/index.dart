@@ -1,8 +1,13 @@
+abstract class Human {
+  void walk();
+}
+
 enum Team { red, blue }
 
 enum XPLevel { beginner, medium, pro }
 
-class Player {
+class Player extends Human {
+  // Missing concrete implementation of 'Human.walk'.
   String name;
   XPLevel xp;
   Team team;
@@ -15,6 +20,16 @@ class Player {
 
   void sayHello() {
     print("Hi my name is $name");
+  }
+
+  void walk() {
+    print("im walking");
+  }
+}
+
+class Coach extends Human {
+  void walk() {
+    print("the coach is walking");
   }
 }
 
