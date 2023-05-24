@@ -1,42 +1,25 @@
-abstract class Human {
-  void walk();
+class Human {
+  final String name;
+  Human({required this.name});
+  void sayHello() {
+    print("Hi my name is $name");
+  }
 }
 
 enum Team { red, blue }
 
-enum XPLevel { beginner, medium, pro }
-
+// Player 클래스는 Human 클래스가 갖고 있는 모든 것들을 갖는다.
 class Player extends Human {
-  // Missing concrete implementation of 'Human.walk'.
-  String name;
-  XPLevel xp;
-  Team team;
+  final Team team;
 
   Player({
-    required this.name,
-    required this.xp,
     required this.team,
-  });
-
-  void sayHello() {
-    print("Hi my name is $name");
-  }
-
-  void walk() {
-    print("im walking");
-  }
-}
-
-class Coach extends Human {
-  void walk() {
-    print("the coach is walking");
-  }
+    required String name,
+    // Human 클래스를 상속받기에 Human 클래스의 name property를 받아야한다.
+  }) : super(name: name);
+  // super를 이용하여 name을 Human 클래스에 전달한다.
 }
 
 void main() {
-  var kamja = Player(name: "kamja", xp: XPLevel.medium, team: Team.blue)
-    ..name = "kokuma"
-    ..xp = XPLevel.pro
-    ..team = Team.red
-    ..sayHello();
+  var player = Player(team: Team.red, name: "kamja");
 }
