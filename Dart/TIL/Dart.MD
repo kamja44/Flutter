@@ -24,6 +24,7 @@
 4. [Class](#class)<br>
    &nbsp;&nbsp;4-1. [Dart Class](#dart-class)<br>
    &nbsp;&nbsp;4-2. [Constructors](#constructors)<br>
+   &nbsp;&nbsp;4-3. [Named Constructor Parameters](#named-constructor-parameters)<br>
 
 # 1장
 
@@ -708,3 +709,32 @@ void main() {
   player3.sayHello();
 }
 ```
+
+## Named Constructor Parameters
+
+```dart
+class Player {
+  final String name;
+  int xp;
+  String team;
+  int age;
+
+  Player(
+      {required this.name,
+      required this.xp,
+      required this.team,
+      required this.age,
+      });
+}
+
+void main() {
+  var player = Player(
+    name: "kamja ",
+    xp: 1200,
+    team: "blue",
+    age: 20,
+  );
+}
+```
+
+- 생성자의 요소에 required를 추가함으로써 null값을 배제한다.
