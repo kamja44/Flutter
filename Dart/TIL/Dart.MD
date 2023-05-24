@@ -26,6 +26,7 @@
    &nbsp;&nbsp;4-2. [Constructors](#constructors)<br>
    &nbsp;&nbsp;4-3. [Named Constructor Parameters](#named-constructor-parameters)<br>
    &nbsp;&nbsp;4-4. [Named Constructors](#named-constructors)<br>
+   &nbsp;&nbsp;&nbsp;&nbsp;4-4-1. [fromJson](#fromjson)<br>
 
 # 1장
 
@@ -807,3 +808,87 @@ void main() {
 
 - named parameter는 기본적으로 required가 아니다.
 - positional parameter는 기본적으로 required이다.
+
+### fromJson
+
+```dart
+
+class Player {
+  final String name;
+  int xp;
+  String team;
+
+  Player.fromJson(Map<String, dynamic> playerJson)
+      : name = playerJson["name"],
+        xp = playerJson["xp"],
+        team = playerJson["team"];
+
+  void sayHello() {
+    print("Hi my name is $name");
+  }
+}
+
+void main() {
+  var apiData = [
+    {
+      "name": "kamja",
+      "team": "blue",
+      "xp": 0,
+    },
+    {
+      "name": "kokuma",
+      "team": "blue",
+      "xp": 0,
+    },
+    {
+      "name": "nanna",
+      "team": "blue",
+      "xp": 0,
+    },
+  ];
+
+  apiData.forEach((playerJson) {
+    var player = Player.fromJson(playerJson);
+    player.sayHello();
+  });
+}
+class Player {
+  final String name;
+  int xp;
+  String team;
+
+  Player.fromJson(Map<String, dynamic> playerJson)
+      : name = playerJson["name"],
+        xp = playerJson["xp"],
+        team = playerJson["team"];
+
+  void sayHello() {
+    print("Hi my name is $name");
+  }
+}
+
+void main() {
+  var apiData = [
+    {
+      "name": "kamja",
+      "team": "blue",
+      "xp": 0,
+    },
+    {
+      "name": "kokuma",
+      "team": "blue",
+      "xp": 0,
+    },
+    {
+      "name": "nanna",
+      "team": "blue",
+      "xp": 0,
+    },
+  ];
+
+  apiData.forEach((playerJson) {
+    var player = Player.fromJson(playerJson);
+    player.sayHello();
+  });
+}
+```

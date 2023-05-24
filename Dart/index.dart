@@ -1,43 +1,39 @@
 class Player {
   final String name;
-  int xp, age;
+  int xp;
   String team;
 
-  Player({
-    required this.name,
-    required this.xp,
-    required this.team,
-    required this.age,
-  });
+  Player.fromJson(Map<String, dynamic> playerJson)
+      : name = playerJson["name"],
+        xp = playerJson["xp"],
+        team = playerJson["team"];
 
-  // Player를 초기화하는 method
-
-  // named Syntax 사용
-  // named parameter에는 기본적으로 required 속성이 없다.
-  Player.createBluePlayer({
-    required String name,
-    required int age,
-  })  : this.age = age,
-        this.name = name,
-        this.team = "blue",
-        this.xp = 0;
-
-  // positional syntax 사용
-  // 기본적으로 positional syntax는 required이다.
-  Player.createRedPlayer(String name, int age)
-      : this.age = age,
-        this.name = name,
-        this.team = "red",
-        this.xp = 0;
+  void sayHello() {
+    print("Hi my name is $name");
+  }
 }
 
 void main() {
-  var bluePlayer = Player.createBluePlayer(
-    name: "kamja",
-    age: 20,
-  );
-  var redPlayer = Player.createRedPlayer(
-    "kokuma",
-    30,
-  );
+  var apiData = [
+    {
+      "name": "kamja",
+      "team": "blue",
+      "xp": 0,
+    },
+    {
+      "name": "kokuma",
+      "team": "blue",
+      "xp": 0,
+    },
+    {
+      "name": "nanna",
+      "team": "blue",
+      "xp": 0,
+    },
+  ];
+
+  apiData.forEach((playerJson) {
+    var player = Player.fromJson(playerJson);
+    player.sayHello();
+  });
 }
