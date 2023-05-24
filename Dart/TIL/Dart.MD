@@ -33,6 +33,7 @@
    &nbsp;&nbsp;4-8. [Inheritance](#inheritance)<br>
    &nbsp;&nbsp;4-9. [Override](#override)<br>
    &nbsp;&nbsp;4-10. [Super](#super)<br>
+   &nbsp;&nbsp;4-11. [Mixins](#mixins)<br>
 
 # 1장
 
@@ -1123,3 +1124,37 @@ void main() {
 ## Super
 
 부모 클래스의 프로퍼티에 접근하거나 메소드를 호출할 수 있다.
+
+## Mixins
+
+생성자가 없는 클래스이다.
+
+- 클래스에 프로퍼티들을 추가할 때 사용한다.
+- Mixins를 사용할 때는 extends가 아닌 with를 사용한다.
+  - Mixins의 핵심은 여러 클래스에 재사용이 가능하다.
+
+```dart
+mixin Strong {
+  final double strengthLevel = 1500.99;
+}
+
+mixin QuickRunner {
+  void runQuick() {
+    print("runnnnnnnnnn!");
+  }
+}
+
+mixin Tall {
+  final double height = 1.99;
+}
+
+enum Team { red, blue }
+
+class Player with Strong, QuickRunner, Tall {}
+
+class Horse with Strong, QuickRunner {}
+
+class Kid with QuickRunner {}
+
+void main() {}
+```
