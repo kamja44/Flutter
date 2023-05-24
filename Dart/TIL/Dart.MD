@@ -982,9 +982,9 @@ class Player {
 }
 
 void main() {
-  var kamja = Player(name: "kamja", xp: 1000, team: Team.blue)
+  var kamja = Player(name: "kamja", xp: XPLevel.medium, team: Team.blue)
     ..name = "kokuma"
-    ..xp = 1300
+    ..xp = XPLevel.pro
     ..team = Team.red
     ..sayHello();
 }
