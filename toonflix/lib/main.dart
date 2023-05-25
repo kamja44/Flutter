@@ -4,19 +4,44 @@ void main() {
   runApp(App());
 }
 
-// main 함수의 runApp함수에 할당하는 widget
-// 즉, App widget은 우리 앱의 root이다.
-// root widget은 materialApp() 혹은 cupertinoApp()을 return 해야한다.
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("Hello Kamja"),
-        ),
-        body: Center(
-          child: Text("Hello World!"),
+        backgroundColor: Color.fromRGBO(18, 18, 18, 1),
+        body: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 30),
+          child: Column(
+            children: [
+              SizedBox(
+                height: 80,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(
+                        "Hi, Kamja",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 25,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                      Text(
+                        "Welcome Back!!",
+                        style: TextStyle(
+                            color: Colors.white.withOpacity(0.7), fontSize: 14),
+                      ),
+                    ],
+                  )
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );
