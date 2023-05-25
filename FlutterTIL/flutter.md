@@ -78,6 +78,20 @@ class App extends StatelessWidget {
 
 ## Padding
 
-padding의 EdgeInsets
+padding의 EdgeInsets.all
 
 - 상하좌우 모두에 padding 10을 준다.
+
+```dart
+Padding(
+    padding: EdgeInsets.all(10),
+);
+```
+
+padding의 EdgeInsets.only()
+
+- 상하좌우 중 한 가지를 구체적으로 정할 수 있다.
+
+padding의 EdgeInsets.only()
+
+- 수직 padding과 수평 padding을 지정할 수 있다.
