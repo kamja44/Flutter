@@ -108,4 +108,26 @@ padding의 EdgeInsets.only()
 - BoxDecoration의 borderRadius
 - borderRadius.circle(숫자)로 사용
 
+## open user settings (JSON)
+
+### editor.codeActionsOnSave
+
+코드의 개선점을 자동으로 개선한다.
+
+- 변수를 const로 설정하면 더 좋은경우 const로 수정한다.
+
+```json
+"editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+```
+
+### dart.previewFlutterUiGuides
+
+부모가 무엇인지 가이드라인을 생성한다.
+
+```json
+"dart.previewFlutterUiGuides": true,
+```
+
 ## 재사용 가능한 Widget

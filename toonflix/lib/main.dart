@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(App());
+  runApp(const App());
 }
 
 class App extends StatelessWidget {
+  const App({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Color.fromRGBO(18, 18, 18, 1),
+        backgroundColor: const Color.fromRGBO(18, 18, 18, 1),
         body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 80,
               ),
               Row(
@@ -24,7 +26,7 @@ class App extends StatelessWidget {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(
+                      const Text(
                         "Hi, Kamja",
                         style: TextStyle(
                           color: Colors.white,
@@ -41,7 +43,7 @@ class App extends StatelessWidget {
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 120,
               ),
               Text(
@@ -51,10 +53,10 @@ class App extends StatelessWidget {
                   fontSize: 22,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
-              Text(
+              const Text(
                 "\$5 194 382",
                 style: TextStyle(
                   color: Colors.white,
@@ -62,13 +64,17 @@ class App extends StatelessWidget {
                   fontWeight: FontWeight.w800,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Row(
                 children: [
                   Container(
-                    child: Padding(
+                    decoration: BoxDecoration(
+                      color: Colors.amber,
+                      borderRadius: BorderRadius.circular(45),
+                    ),
+                    child: const Padding(
                       padding: EdgeInsets.symmetric(
                         vertical: 25,
                         horizontal: 40,
@@ -80,10 +86,6 @@ class App extends StatelessWidget {
                           fontWeight: FontWeight.w800,
                         ),
                       ),
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.amber,
-                      borderRadius: BorderRadius.circular(45),
                     ),
                   ),
                 ],
