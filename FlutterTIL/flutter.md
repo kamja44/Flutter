@@ -67,6 +67,9 @@ class App extends StatelessWidget {
 ## 색상 표현 방법
 
 1. Colors.method 사용
+
+- 이미 정의된 색상을 사용할 때 사용한다.
+
 2. Color(0xFF색상코드)사용
 3. Color.fromARGB
 
@@ -95,3 +98,14 @@ padding의 EdgeInsets.only()
 padding의 EdgeInsets.only()
 
 - 수직 padding과 수평 padding을 지정할 수 있다.
+
+## Container Widget
+
+- div 태그와 동일하다.
+
+## borderradius
+
+- BoxDecoration의 borderRadius
+- borderRadius.circle(숫자)로 사용
+
+## 재사용 가능한 Widget

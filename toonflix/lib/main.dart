@@ -13,6 +13,7 @@ class App extends StatelessWidget {
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: 30),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
                 height: 80,
@@ -38,6 +39,53 @@ class App extends StatelessWidget {
                       ),
                     ],
                   )
+                ],
+              ),
+              SizedBox(
+                height: 120,
+              ),
+              Text(
+                "Total Balance",
+                style: TextStyle(
+                  color: Colors.white.withOpacity(0.8),
+                  fontSize: 22,
+                ),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Text(
+                "\$5 194 382",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 45,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                children: [
+                  Container(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 25,
+                        horizontal: 40,
+                      ),
+                      child: Text(
+                        "Transfer",
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colors.amber,
+                      borderRadius: BorderRadius.circular(45),
+                    ),
+                  ),
                 ],
               )
             ],
