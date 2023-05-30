@@ -270,3 +270,27 @@ Expanded(
                   ),
                 ),
 ```
+
+## late
+
+late modifier는 이 property를 당장 초기화 하지 않아도 된다는 것을 의미한다.
+
+```dart
+late Timer timer;
+```
+
+## Timer
+
+```dart
+  void onTick(Timer timer) {
+    setState(() {
+      totalSeconds -= 1;
+    });
+  }
+
+Timer.periodic(Duration(seconds: 1), onTick)
+```
+
+- 매 1초마다 onTick 함수를 실행한다.
+- onTick()은 함수를 지금 실행함을 의미한다.
+  - 즉, 함수를 지금 실행할 것이 아니기에 onTick을 사용해야한다.
