@@ -212,3 +212,61 @@ stateful Widget은 Life Cycle을 가지고 있다.
 - build는 위젯에서 UI를 만든다.
 - dispose는 위젯이 위젯 트리에서 제거될 때 실행된다.
   - dispose 메서드 안에서 이벤트 리스너와 같은 것들을 취소시킨다.
+
+# POMODORO APP
+
+## Flexible
+
+- 하드 코딩되는 값을 만들게 해준다.
+  - UI를 비율에 기반해서 유연하게 만든다.
+
+```dart
+Flexible(
+            flex: 3,
+            child: Center(
+              child: IconButton(
+                iconSize: 130,
+                color: Theme.of(context).cardColor,
+                onPressed: () {},
+                icon: const Icon(Icons.play_circle_outline),
+              ),
+            ),
+          ),
+```
+
+## Expanded
+
+- 요소를 확장시킨다.
+
+```dart
+Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).cardColor,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Pomodors",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w800,
+                            color:
+                                Theme.of(context).textTheme.displayLarge!.color,
+                          ),
+                        ),
+                        Text(
+                          "0",
+                          style: TextStyle(
+                            fontSize: 60,
+                            fontWeight: FontWeight.w800,
+                            color:
+                                Theme.of(context).textTheme.displayLarge!.color,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+```
