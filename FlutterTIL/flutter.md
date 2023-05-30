@@ -130,4 +130,25 @@ padding의 EdgeInsets.only()
 "dart.previewFlutterUiGuides": true,
 ```
 
-## 재사용 가능한 Widget
+## Stateless Widget
+
+- build 메서드를 통해 단지 UI만 출력한다.
+- 아무런 데이터를 갖고있지 않다.
+
+## Stateful Widget
+
+- stateful Widget은 상태를 가지고 있어서 Stateful로 불린다.
+  - 즉, 상태에 따라 변하게 될 데이터를 생각할 수 있다.
+- 위젯에 데이터를 저장하고, 실시간으로 데이터의 변화를 보고 싶을 때 사용한다.
+
+## setState
+
+State클래스에게 데이터가 변경되었다고 알려주는 함수다.
+
+```dart
+setState(
+      () {
+        counter += 1;
+      },
+    );
+```
