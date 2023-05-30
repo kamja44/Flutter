@@ -156,3 +156,21 @@ setState(
       },
     );
 ```
+
+## context
+
+context는 모든 상위 요소에 대한 정보이다.
+
+- 즉, 부모 요소에 접근할 수 있게 해준다.
+  `Widget build(BuildContext context)`
+
+```dart
+Widget build(BuildContext context) {
+    return const Text(
+      "My Large Title",
+      style: TextStyle(fontSize: 30, color: Theme.of(context).textTheme.titleLarge!.color,),
+    );
+  }
+```
+
+- 부모의 Theme에 접근한다.
