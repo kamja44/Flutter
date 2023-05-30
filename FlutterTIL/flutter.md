@@ -174,3 +174,41 @@ Widget build(BuildContext context) {
 ```
 
 - 부모의 Theme에 접근한다.
+
+## InitState
+
+- 상태를 초기화하기 위한 메서드
+- initState 메서드는 항상 build 메서드보다 먼저 호출되어야 한다.
+  - InitState 메서드는 단 한번만 호출된다.
+  - initState를 사용할 때 super.initState()를 호출해야 한다.
+
+```dart
+@override
+void initState(){
+  super.initState();
+  print("initState!");
+}
+```
+
+## dispose
+
+- 위젯이 스크린에서 제거될 때 호출되는 메서드이다.
+  - 무언가를 취소할 때 사용한다.
+
+```dart
+@override
+void dispose(){
+  super.dispose();
+  print("dispose!);
+}
+```
+
+### Life Cycle
+
+stateful Widget은 Life Cycle을 가지고 있다.
+
+- initState은 build 이전에 호출된다.
+  - 변수를 초기화한다.
+- build는 위젯에서 UI를 만든다.
+- dispose는 위젯이 위젯 트리에서 제거될 때 실행된다.
+  - dispose 메서드 안에서 이벤트 리스너와 같은 것들을 취소시킨다.
