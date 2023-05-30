@@ -294,3 +294,56 @@ Timer.periodic(Duration(seconds: 1), onTick)
 - 매 1초마다 onTick 함수를 실행한다.
 - onTick()은 함수를 지금 실행함을 의미한다.
   - 즉, 함수를 지금 실행할 것이 아니기에 onTick을 사용해야한다.
+
+# Toonflx
+
+dart, flutter의 패키지는 pub.dev에서 다운받을 수 있다.
+
+- node의 npm or python의 pip와 동일하다.
+
+http 패키지 다운로드 방법
+
+1. dart명령어 커맨드 라인에 실행
+   `dart pub add http`
+
+2. flutter명령어 커맨드 라인에 실행
+   `flutter pub add http`
+
+3. dependencies를 pubspec.ymal이라는 파일에 추가하기
+   `dependencies: http: ^0.13.5`
+
+## get (http 패키지)
+
+특정 URL에 요청을 보낸다.
+
+```dart
+import 'package:http/http.dart' as http;
+
+class ApiService {
+  final String baseUrl = "https://webtoon-crawler.nomadcoders.workers.dev";
+  final String today = "today";
+
+  void getTodaysToons(){
+    final url = Uril.parse("$baseUrl/$today");
+    http.get(url)
+  }
+}
+
+```
+
+## Future
+
+- 미래에 받을 값의 타입을 알려준다.
+  - 즉, 미래에 완료될 동작을 의미한다.
+  - ex) API호출 후 반환받은 응답을 사용할 때
+
+## 비동기 프로그래밍
+
+- js의 async await 문법과 동일하다.
+
+```dart
+  void getTodaysToons() async{
+    final url = Uri.parse("$baseUrl/$today");
+    await http.get(url);
+  }
+```
