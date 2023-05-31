@@ -528,3 +528,10 @@ return ListView(
 
 - StatelessWidget을 route로 감싸서 다른 스크린처럼 보여준다.
   - builder를 이용하여 router를 감싼다.
+
+## Hero 위젯
+
+- Navigator를 이용하면 새로운 화면을 사용한다.
+- Hero를 이용하면 기존 화면에서 요소를 움직일 수 있다.
+  - Hero를 두 개의 화면에 각각 사용하고, 각각의 위젯에 같은 태그를 주면 된다.
+    - Hero는 태그를 달아줘야 한다.
