@@ -356,3 +356,74 @@ class ApiService {
 
 - dynamic타입은 어떠한 타입이든 올 수 있다.
   - 즉, 우리가 타입을 직접 정해줘야 한다.
+
+## future type
+
+- 당장 완료될 수 없는 작업의 타입을 의미한다.
+
+## dart의 Named Constructors
+
+- Constructor의 인수만 적어주고, property를 적어주면 초기화가 가능하다.
+
+```dart
+WebtoonModel.fromJson(Map<String ,dynamic> json) : title = json["title"], thumb = json["thumb"], id = json["id"];
+```
+
+## API로 호출한 데이터 불러오기
+
+방법 1
+
+```dart
+  List<WebtoonModel> webtoons = [];
+  bool isLoading = true;
+
+  void waitForWebToons() async {
+    webtoons = await ApiService.getTodaysToons();
+    isLoading = false;
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    waitForWebToons();
+  }
+```
+
+방법 2
+FutureBuilder 위젯 사용
+
+## FuterBuilder 위젯
+
+- Builder는 UI를 그려주는 함수이다.
+  - initial 데이터 전달이 가능하다.
+  - future 타입의 데이터 전달이 가능하다.
+    - FutureBuilder가 future타입의 데이터를 기다리기에 await를 사용할 필요가 없다.
+- builder의 2번째 매개변수 snapshot을 이용하면 Future의 상태를 알 수 있다.
+
+```dart
+Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        elevation: 3,
+        foregroundColor: Colors.green,
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: const Text(
+          "오늘의 웹툰",
+          style: TextStyle(fontSize: 22),
+        ),
+      ),
+      body: FutureBuilder(
+        future: webtoons,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return const Text("There is data!");
+          }
+          return const Text("Loading...");
+        },
+      ),
+    );
+```
+
+FutureBuilder 위젯을 사용하면 stateless 위젯으로도 데이터를 받아올 수 있다.
