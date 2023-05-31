@@ -347,3 +347,12 @@ class ApiService {
     await http.get(url);
   }
 ```
+
+## models > api_service.dart
+
+- 호출한 API 데이터를 클래스로 만들어서 여러 클래스로 이뤄진 리스트로 변환한다.
+
+## dynamic type
+
+- dynamic타입은 어떠한 타입이든 올 수 있다.
+  - 즉, 우리가 타입을 직접 정해줘야 한다.
