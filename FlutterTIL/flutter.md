@@ -427,3 +427,81 @@ Scaffold(
 ```
 
 FutureBuilder 위젯을 사용하면 stateless 위젯으로도 데이터를 받아올 수 있다.
+
+## CircularProgressIndicator()
+
+- 원형 로딩 이미지
+
+## ListView
+
+- 많은 양의 데이터를 연속적으로 보여주고 싶을 때는 Column과 Row는 적절하지 않다.
+  - 이럴때 ListView를 사용한다.
+- ListView는 여러 항목을 나열하는데 최적화된 Widget이다.
+
+```dart
+return ListView(
+              children: [
+                for (var webtoon in snapshot.data!) Text(webtoon.title)
+              ],
+            );
+```
+
+## !
+
+- !은 데이터가 있다고 확신하는걸 의미한다.
+  `for (var webtoon in snapshot.data!) Text(webtoon.title)`
+  `itemCount: snapshot.data!.length`
+
+## ListView.builder
+
+- ListView보다 더 최적화 된 위젯이다.
+- 사용자가 보고 있는 아이템만 build 한다.
+  - 즉, 사용자가 아이템을 보지 않는다면 해당 아이템을 메모리에서 삭제한다.
+- 모든 아이템을 한 번에 만들고, 만들려는 아이템에 itemBuilder 함수를 실행하여 build 되는 item의 index에 접근하여 보여준다.
+
+```dart
+            return ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: snapshot.data!.length,
+              itemBuilder: (context, index) {
+                var webtoon = snapshot.data![index];
+                return Text(webtoon.title);
+              },
+            );
+```
+
+### scrollDirection
+
+- 스크롤 방향을 바꾼다.
+  `scrollDirection: Axis.horizontal,`
+
+### itemCount
+
+- dart가 몇 개의 item을 build할지 설정할 수 있다.
+  `itemCount: snapshot.data!.length,`
+
+### itemBuilder
+
+- 어떤 아이템이 build 되는지 index를 이용하여 알 수 있다.
+  `itemBuilder: (context, index){}`
+
+## ListView.separated
+
+- ListView.builder보다 더 최적화된 ListView이다.
+- separatorBuilder이란 widget을 리턴해야 하는 함수를 반드시 가져야 한다.
+  - 아이템을 구분하기 위해 리스트 아이템 사이에 렌더링된다.
+    - 즉, ListView가 리스트와 구분자를 렌더링한다.
+
+```dart
+            return ListView.separated(
+              scrollDirection: Axis.horizontal,
+              itemCount: snapshot.data!.length,
+              itemBuilder: (context, index) {
+                var webtoon = snapshot.data![index];
+                return Text(webtoon.title);
+              },
+              separatorBuilder: (context, index) => const SizedBox(
+                width: 20,
+              ),
+            );
+```
