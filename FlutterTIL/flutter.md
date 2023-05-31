@@ -505,3 +505,26 @@ return ListView(
               ),
             );
 ```
+
+## clipBehavior
+
+자식의 부모 영역 침범을 제어하는 방법
+`clipBehavior: Clip.hardEdge`
+
+## GestureDetector
+
+- 사용자의 동작을 감지할 수 있다.
+
+## Navigator
+
+- 화면을 바꿀때 사용한다.
+- Navigator는 route를 푸시할 수 있다.
+
+### route
+
+- StatelessWidget을 애니메이션 효과로 감싸서 스크린처럼 보이도록 한다.
+
+#### materialPageRoute
+
+- StatelessWidget을 route로 감싸서 다른 스크린처럼 보여준다.
+  - builder를 이용하여 router를 감싼다.
