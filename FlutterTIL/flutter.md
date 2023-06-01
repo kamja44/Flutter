@@ -535,3 +535,34 @@ return ListView(
 - Hero를 이용하면 기존 화면에서 요소를 움직일 수 있다.
   - Hero를 두 개의 화면에 각각 사용하고, 각각의 위젯에 같은 태그를 주면 된다.
     - Hero는 태그를 달아줘야 한다.
+
+## widget.data
+
+State의 build method가 State가 속한 StatefulWidget의 data를 받아오는 방법
+`widget.title`
+
+- widget은 부모한테 가라는 의미이다.
+
+stateless 위젯의 변수가 title일 때
+
+- stateless 위젯에서 title 변수를 쓰기 위해선 title이라고 작성하면된다.
+  stateful 위젯에서 변수가 title일 때
+- stateful 위젯에서 title 변수를 쓰기 위해선 widget.title이라고 작성해야 한다.
+
+## 초기화하고 싶은 property가 있지만 constructor에서 초기화가 불가능한 경우
+
+1. late로 변수 선언
+
+```dart
+late Future<WebtoonDetailModel> webtoon;
+```
+
+2. initState() 함수를 사용하여 변수 초기화
+
+```dart
+@override
+void initState(){
+  super.initState();
+  webtoon = ApiService.getToonById(widget.id);
+}
+```
