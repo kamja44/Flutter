@@ -566,3 +566,31 @@ void initState(){
   webtoon = ApiService.getToonById(widget.id);
 }
 ```
+
+## url_launcher
+
+### install
+
+`dependencies: url_launcher: ^6.1.11`
+
+### iOS 셋팅
+
+```xml
+<key>LSApplicationQueriesSchemes</key>
+<array>
+  <string>sms</string>
+  <string>tel</string>
+</array>
+```
+
+### 안드로이드 셋팅
+
+```xml
+<queries>
+<intent>
+  <action android:name="android.intent.action.VIEW" />
+  <category android:name="android.intent.category.BROWSABLE" />
+  <data android:scheme="https" />
+</intent>
+</queries>
+```
