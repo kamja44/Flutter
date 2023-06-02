@@ -594,3 +594,20 @@ void initState(){
 </intent>
 </queries>
 ```
+
+## shared_preferences
+
+모바일 저장소에 데이터를 저장한다.
+`dependencies: shared_preferences: ^2.0.15`
+
+모바일 저장소와 connection을 만들어야 한다.
+
+```dart
+final prefs  = await SharedPreferences.getInstance();
+
+// set자료형()을 이용하여 데이터를 저장할 수 있다.
+await prefs.setInt("counter", 10); // counter에 10저장
+
+// get자료형()을 이용하여 데이터를 불러올 수 있다.
+final int? counter = prefs.getInt("counter");
+```
